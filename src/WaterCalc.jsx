@@ -122,7 +122,9 @@ function CalculateWater(){
                     phaseAdd = 0.5
                     break;
                 case 'No':
-                    activityMultiplier = 1.0;
+                    phaseAdd = 1.0;
+                default:
+                    phaseAdd = 1.0
             }
         
             let calc = weight * 0.035 * ageMultiplier * activityMultiplier + phaseAdd;
