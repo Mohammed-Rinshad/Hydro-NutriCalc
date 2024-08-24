@@ -1,0 +1,90 @@
+body{
+  background-color: rgba(252,254,253,255);
+}
+
+            /* ....................Interface.Jsx  CSS...................*/
+
+#top-hr{
+  width: 90%;
+  color: black;
+  margin-top: 60px;
+}
+
+#bottom-hr{
+  width: 90%;
+  color: black;
+  margin-top: 40px;
+}
+
+#title{
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 40px;
+  transform: translateY(-20px);
+  animation: topFadeIn 1.5s ease-out forwards;
+}
+
+#body-div{
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 20em; /* Adjust as needed */
+  width: 20em; /* Adjust as needed */
+  margin-left: 20px;
+  margin-top: 70px;
+}
+
+#body-img{
+  max-width: 20em; /* Keeps image responsive */
+  max-height: 20em; /* Ensures image fits within the container */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: topFadeIn 1.5s ease-out forwards;
+}
+
+@keyframes topFadeIn {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+p{
+  font-family: "Anek Devanagari", sans-serif;
+  text-align: center;
+  font-size: larger;
+  transform: translateY(-20px);
+  animation: topFadeIn 1.5s ease-out forwards;
+}
+
+#btnContainer{
+  display: flex;
+  justify-content: center;
+}
+
+#getStarted{
+  background-color: rgba(19,162,255,255);
+  border: none;
+  /* align-items: center; */
+  width: 17em;
+  font-family: "Anek Devanagari", sans-serif;
+  color: aliceblue;
+  border-radius: 15px;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 90px;
+  cursor: pointer;
+  text-align: center; /* Horizontally center the text */
+  line-height: 50px; 
+  transform: translateY(-20px);
+  animation: topFadeIn 1.5s ease-out forwards;
+}
+
+/* #getStarted:hover {
+  background-color: #5bbcfd;
+
+} */
+
+        /*....................SecondInterface.jsx.................. */
+

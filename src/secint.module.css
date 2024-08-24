@@ -1,0 +1,146 @@
+#header {
+    background-color: rgba(252,254,253,255);
+    color: black;
+    padding: 3px;
+    text-align: center;
+    margin-right: -3%;
+    margin-left: -3%;
+    margin-top: -3%;
+    /* padding-bottom: 45px; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding-bottom: 25px;
+
+}
+
+#header h1 {
+    margin: 0 0 20px 0;
+    font-size: 1.5em;
+    font-family: "Anek Devanagari", sans-serif;
+    margin-left: -100px;
+    margin-top: -35px;
+}
+
+#logo{
+    width: 8%;
+    border-radius: 50%;
+    margin-left: -320px;
+    margin-top: 30px;
+}
+
+#ImgContainer{
+    margin-top: -55px;
+}
+
+#home{
+    width: 10.5%;
+    margin-left: 320px;
+    
+}
+
+#IntakeContainer{
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    /* align-items: center; Centers vertically */
+    /* height: 20em; Adjust as needed */
+    /* width: 20em; Adjust as needed */
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+#CalculateWaterIntake{
+    background-color: #cee3f2;
+    width: 70em;
+    height: 16em;
+    border-radius: 15px;
+    margin-left: -12px;
+}
+
+#WaterImg{
+    width: 12em;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+#WaterBtn{
+    background-color: #1582d0;
+    border: none;
+    /* align-items: center; */
+    width: 16em;
+    font-family: "Anek Devanagari", sans-serif;
+    color: aliceblue;
+    border-radius: 15px;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 25px;
+    cursor: pointer;
+    text-align: center; /* Horizontally center the text */
+    margin-left: 22px;
+    line-height: 45px; 
+    transform: translateY(-20px);
+    animation: topFadeIn 1.5s ease-out forwards;
+}
+
+#CalculateProteinIntake{
+    background-color: #cee3f2;
+    width: 70em;
+    height: 16em;
+    border-radius: 15px;
+    margin-left: -365px;
+    margin-top: 280px;
+}
+
+#ProteinImg{
+    width: 10.5em;
+    margin-left: 100px;
+    margin-top: 30px;
+
+}
+
+#ProteinBtn{
+    background-color: #1582d0;
+    border: none;
+    /* align-items: center; */
+    width: 16em;
+    font-family: "Anek Devanagari", sans-serif;
+    color: aliceblue;
+    border-radius: 15px;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-align: center; /* Horizontally center the text */
+    margin-left: 22px;
+    line-height: 45px; 
+}
+
+#CalculateCalIntake{
+    background-color: #cee3f2;
+    width: 70em;
+    height: 16em;
+    border-radius: 15px;
+    margin-left: -365px;
+    margin-top: 560px;
+}
+
+#CalImg{
+    width: 10em;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+#CalBtn{
+    background-color: #1582d0;
+    border: none;
+    /* align-items: center; */
+    width: 16em;
+    font-family: "Anek Devanagari", sans-serif;
+    color: aliceblue;
+    border-radius: 15px;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 0px;
+    cursor: pointer;
+    text-align: center; /* Horizontally center the text */
+    margin-left: 22px;
+    line-height: 45px; 
+}
