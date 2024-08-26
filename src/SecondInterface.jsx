@@ -20,6 +20,10 @@ function SecInterface(){
         navigate('/CalculateWater')
     }
 
+    function ToCalculateProtein(){
+        navigate('/ProteinCalc')
+    }
+
     return(
         <>
             <div id={style.header}>
@@ -39,7 +43,7 @@ function SecInterface(){
 
             <div id={style.CalculateProteinIntake}>
                 <img src={ProteinImg} id={style.ProteinImg}/>
-                <button id={style.ProteinBtn}>Calculate Protein Intake</button>
+                <button onClick={ToCalculateProtein} id={style.ProteinBtn}>Calculate Protein Intake</button>
             </div>
 
             <div id={style.CalculateCalIntake}>

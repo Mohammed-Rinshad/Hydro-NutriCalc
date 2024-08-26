@@ -1,38 +1,39 @@
+import style from './watercal.module.css'
+// import CalculateWater from './WaterCalc'
 import React, {useState} from "react"
 // import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import style from './watercal.module.css'
-
-
-function CalculateWater(){
+function ProteinCalc(){
 
     const navigate = useNavigate();
 
-    function ToHome(){
-    navigate('/');
+
+    
+    function GoHome(){
+        navigate('/');
 
     }
 
-    function ToPrevPage(){
-        navigate(-1)
+    function GoBack(){
+        navigate(-1);
+
     }
 
+    const [isVisible, setIsVisible] = useState(false);
 
-    const [hVal , sethVal] = useState()
+    const [ProteinVal , setProteinVal] = useState()
 
-    function CalculateIntake(){
+    function CalculateProtein(){
         let selectGender = document.getElementById('selectGender').value
         let weight = document.getElementById('weight').value
         let PhysicalActivity = document.getElementById('PhysicalActivity').value
         let SelectAge = document.getElementById('SelectAge').value
         let Phases = document.getElementById('Phases').value
-        // let labelPhases = document.getElementById('labelPhases')
 
+        setIsVisible(!isVisible);
 
-
-
-        // ...............MALE EQUATIONS....................
+                // ...............MALE EQUATIONS....................
 
 
     
@@ -63,17 +64,17 @@ function CalculateWater(){
                     activityMultiplier = 1.0;
                     break;
                 case 'Moderate':
-                    activityMultiplier = 1.2;
+                    activityMultiplier = 1.3;
                     break;
                 case 'Active':
-                    activityMultiplier = 1.5;
+                    activityMultiplier = 1.6;
                     break;
                 default:
                     activityMultiplier = 1.0;
             }
         
-            let calc = weight * 0.04 * ageMultiplier * activityMultiplier;
-            sethVal(calc.toFixed(2));
+            let calc = weight * 0.8 * ageMultiplier * activityMultiplier;
+            setProteinVal(calc.toFixed(2));
         }
         
 
@@ -105,10 +106,10 @@ function CalculateWater(){
                     activityMultiplier = 1.0;
                     break;
                 case 'Moderate':
-                    activityMultiplier = 1.2;
+                    activityMultiplier = 1.3;
                     break;
                 case 'Active':
-                    activityMultiplier = 1.5;
+                    activityMultiplier = 1.6;
                     break;
                 default:
                     activityMultiplier = 1.0;
@@ -116,11 +117,11 @@ function CalculateWater(){
 
             switch (Phases){
                 case 'Pregnancy':
-                    phaseAdd = 0.3
+                    phaseAdd = 15
                     break;
 
                 case 'Menstruation':
-                    phaseAdd = 0.5
+                    phaseAdd = 20
                     break;
                 case 'No':
                     phaseAdd = 0;
@@ -128,40 +129,26 @@ function CalculateWater(){
                     phaseAdd = 0;
             }
         
-            let calc = weight * 0.035 * ageMultiplier * activityMultiplier + phaseAdd;
-            sethVal(calc.toFixed(2));
+            let calc = weight * 0.7 * ageMultiplier * activityMultiplier + phaseAdd;
+            setProteinVal(calc.toFixed(2));
         }
-
-
-        // selectGender = 'Male'
-        // weight = ''
-        // PhysicalActivity = 'Sedentary'
-        // SelectAgePhases = 'No'
-
-    // (selectGender === 'Male' && SelectAge === '0-3 years' && PhysicalActivity === 'Sedentary') ? sethVal(weight * 0.04 , hVal => hVal * 1.5) :
-    // console.log('nothing')
-                    
     }
-
-
-
 
 
     return(
         <>
-
             <div className={style.header}>
-                <img onClick={ToPrevPage} className={style.backArrow} src='https://www.pikpng.com/pngl/b/246-2465368_back-arrow-comments-back-arrow-icon-png-clipart.png'/>
+                <img onClick={GoBack} className={style.backArrow} src='https://www.pikpng.com/pngl/b/246-2465368_back-arrow-comments-back-arrow-icon-png-clipart.png'/>
                 <h1>HydroNutriCalc</h1>
                 <div className={style.ImgContainer}>
-                <img onClick={ToHome} className={style.home} src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"/>
+                <img onClick={GoHome} className={style.home} src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"/>
                 </div>
             </div>
 
 
             <div className={style.waterCalcContainer}>
                 
-                <h1 className={style.heading}>Water Intake Calculator</h1>
+                <h1 className={style.heading}>Protein Intake Calculator</h1>
 
                 </div>
 
@@ -224,29 +211,33 @@ function CalculateWater(){
             </div>
 
 
-                <button onClick={CalculateIntake} className={style.CalculateBtn}>Calculate</button>
+                <button onClick={CalculateProtein} className={style.CalculateBtn}>{isVisible ? '' : ''}Calculate</button>
+      {isVisible && (
+        <div className={style.LastCalcContainer}>
+          <div className={style.LastCalcDiv}>
+            <h1 className={style.LastCalcHead}>Recommended Daily Intake</h1>
+            <p className={style.LastCalc}>
+              You should take approximately <b>{ProteinVal} grams</b> of protein daily.
+            </p>
+          </div>
+        </div>
+      )}
 
-            <div className={style.LastCalcContainer}>
-                <div className={style.LastCalcDiv}>
-                    <h1 className={style.LastCalcHead}>Recommended Daily Water Intake</h1>
-                    <p className={style.LastCalc}>You should drink approximately <b>{hVal} liters</b> of water daily.</p>
-                </div>
 
-            </div>
-
-            <div className={style.LastCalcContainer}>
-                <div className={style.TipsContainer}>
-                    <h1 className={style.LastCalcHead}>Tips for Staying Hydrated</h1>
-                    <p className={style.TipsPara}>Carry a reusable water bottle with you.</p>
-                    <p className={style.TipsPara}>Set reminders to drink water throughout the day.</p>
-                    <p className={style.TipsPara}>Eat water-rich foods like fruits and vegetables.</p>
-                </div>
-
-            </div>
-
+{isVisible && (
+        <div className={style.LastCalcContainer}>
+          <div className={style.TipsContainer}>
+            <h1 className={style.LastCalcHead}>Tips for Staying Protein-rich</h1>
+            <p className={style.TipsPara}>Snack on nuts.</p>
+            <p className={style.TipsPara}>Add eggs to breakfast.</p>
+            <p className={style.TipsPara}>Choose lean meats for meals.</p>
+            <p className={style.TipsPara}>Include chicken in meals.</p>
+          </div>
+        </div>
+      )}
+    
         </>
     )
-
 }
 
-export default CalculateWater
+export default ProteinCalc
