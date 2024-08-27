@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import BodyPic from './assets/Designer17.jpeg'
+import BodyPic from './assets/Designer17-DEt0gJDp.jpeg'
 
 function Interface(){
 
