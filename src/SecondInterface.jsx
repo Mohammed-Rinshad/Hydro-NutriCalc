@@ -12,49 +12,50 @@ function SecInterface(){
     const navigate = useNavigate();
 
     function ToHome(){
-    navigate('/');
-
+        navigate('/');
     }
 
     function ToCalculateWater(){
-        navigate('/CalculateWater')
+        navigate('/CalculateWater');
     }
 
     function ToCalculateProtein(){
-        navigate('/ProteinCalc')
+        navigate('/ProteinCalc');
     }
 
     return(
         <>
-            <div id={style.header}>
-                <img id={style.logo} src={Logo}/>
-                <h1>HydroNutriCalc</h1>
-                <div id={style.ImgContainer}>
-                <img onClick={ToHome} id={style.home} src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"/>
-                </div>
+        <div id={style.header}>
+            <img id={style.logo} src={Logo} alt="Logo" />
+            <h1>HydroNutriCalc</h1>
+            <div id={style.ImgContainer}>
+                <img
+                    onClick={ToHome}
+                    id={style.home}
+                    src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"
+                    alt="Home"
+                />
             </div>
+        </div>
 
         <div id={style.IntakeContainer}>
-
-            <div id={style.CalculateWaterIntake}>
-                <img src={WaterImg} id={style.WaterImg}/>
+            <div id={style.CalculateWaterIntake} className={style.intakeSection}>
+                <img src={WaterImg} id={style.WaterImg} alt="Water" />
                 <button onClick={ToCalculateWater} id={style.WaterBtn}>Calculate Water Intake</button>
             </div>
 
-            <div id={style.CalculateProteinIntake}>
-                <img src={ProteinImg} id={style.ProteinImg}/>
+            <div id={style.CalculateProteinIntake} className={style.intakeSection}>
+                <img src={ProteinImg} id={style.ProteinImg} alt="Protein" />
                 <button onClick={ToCalculateProtein} id={style.ProteinBtn}>Calculate Protein Intake</button>
             </div>
 
-            <div id={style.CalculateCalIntake}>
-                <img src={CalImg} id={style.CalImg}/>
+            <div id={style.CalculateCalIntake} className={style.intakeSection}>
+                <img src={CalImg} id={style.CalImg} alt="Calories" />
                 <button id={style.CalBtn}>Calculate Calories Intake</button>
             </div>
-
         </div>
-
         </>
     )
 }
 
-export default SecInterface 
+export default SecInterface;

@@ -1,146 +1,124 @@
 #header {
-    background-color: rgba(252,254,253,255);
+    background-color: rgba(252, 254, 253, 1);
     color: black;
-    padding: 3px;
-    text-align: center;
-    margin-right: -3%;
-    margin-left: -3%;
-    margin-top: -3%;
-    /* padding-bottom: 45px; */
+    padding: 10px 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding-bottom: 25px;
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 #header h1 {
-    margin: 0 0 20px 0;
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-family: "Anek Devanagari", sans-serif;
-    margin-left: -100px;
-    margin-top: -35px;
+    flex-grow: 1;
+    margin: 0;
+    text-align: center;
 }
 
-#logo{
-    width: 8%;
+#logo {
+    width: 50px;
+    height: 25px;
     border-radius: 50%;
-    margin-left: -320px;
-    margin-top: 30px;
 }
 
-#ImgContainer{
-    margin-top: -55px;
-}
-
-#home{
-    width: 10.5%;
-    margin-left: 320px;
-    
-}
-
-#IntakeContainer{
+#ImgContainer {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    /* align-items: center; Centers vertically */
-    /* height: 20em; Adjust as needed */
-    /* width: 20em; Adjust as needed */
-    margin-left: 20px;
+    align-items: center;
+}
+
+#home {
+    width: 40px;
+    height: 35px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #header {
+        padding: 15px;
+    }
+
+    #header h1 {
+        font-size: 1.5em;
+    }
+
+     #home {
+        width: 35px;
+        height: 25px;
+    }
+
+    #logo{
+        width: 40px;
+        height: 35px; 
+    }
+}
+
+#IntakeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 50px;
+    width: 100%;
+    margin-left: 10px;
 }
 
-#CalculateWaterIntake{
+.intakeSection {
     background-color: #cee3f2;
-    width: 70em;
-    height: 16em;
+    width: 90%;
+    max-width: 700px;
+    height: 18em; /* Slightly increased height */
     border-radius: 15px;
-    margin-left: -12px;
+    margin: 2em 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-#WaterImg{
-    width: 12em;
-    margin-left: 80px;
+.intakeSection img {
+    max-width: 190px;
+    /* margin-bottom: 1em; */
     margin-top: 20px;
 }
 
-#WaterBtn{
+.intakeSection button {
     background-color: #1582d0;
     border: none;
-    /* align-items: center; */
-    width: 16em;
+    width: 80%;
+    max-width: 300px;
     font-family: "Anek Devanagari", sans-serif;
     color: aliceblue;
     border-radius: 15px;
     height: 40px;
     font-size: 20px;
-    margin-top: 25px;
     cursor: pointer;
-    text-align: center; /* Horizontally center the text */
-    margin-left: 22px;
-    line-height: 45px; 
-    transform: translateY(-20px);
-    animation: topFadeIn 1.5s ease-out forwards;
+    text-align: center;
+    line-height: 45px;
+    margin-top: 35px;
 }
 
-#CalculateProteinIntake{
-    background-color: #cee3f2;
-    width: 70em;
-    height: 16em;
-    border-radius: 15px;
-    margin-left: -365px;
-    margin-top: 280px;
-}
+/* Responsive adjustments */
+@media (min-width: 769px) {
+    .intakeSection {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+        height: 20em; /* Slightly increased height for larger screens */
+    }
 
-#ProteinImg{
-    width: 10.5em;
-    margin-left: 100px;
-    margin-top: 30px;
+    .intakeSection img {
+        margin-bottom: 0;
+        margin-left: 2em;
+    }
 
-}
-
-#ProteinBtn{
-    background-color: #1582d0;
-    border: none;
-    /* align-items: center; */
-    width: 16em;
-    font-family: "Anek Devanagari", sans-serif;
-    color: aliceblue;
-    border-radius: 15px;
-    height: 40px;
-    font-size: 20px;
-    margin-top: 20px;
-    cursor: pointer;
-    text-align: center; /* Horizontally center the text */
-    margin-left: 22px;
-    line-height: 45px; 
-}
-
-#CalculateCalIntake{
-    background-color: #cee3f2;
-    width: 70em;
-    height: 16em;
-    border-radius: 15px;
-    margin-left: -365px;
-    margin-top: 560px;
-}
-
-#CalImg{
-    width: 10em;
-    margin-left: 100px;
-    margin-top: 20px;
-}
-
-#CalBtn{
-    background-color: #1582d0;
-    border: none;
-    /* align-items: center; */
-    width: 16em;
-    font-family: "Anek Devanagari", sans-serif;
-    color: aliceblue;
-    border-radius: 15px;
-    height: 40px;
-    font-size: 20px;
-    margin-top: 0px;
-    cursor: pointer;
-    text-align: center; /* Horizontally center the text */
-    margin-left: 22px;
-    line-height: 45px; 
+    .intakeSection button {
+        margin-right: 2em;
+    }
 }
