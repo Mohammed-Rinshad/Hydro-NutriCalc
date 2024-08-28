@@ -4,7 +4,7 @@ import React, {useState} from "react"
 // import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ProteinCalc(){
+function CaloriesCalc(){
 
     const navigate = useNavigate();
 
@@ -22,60 +22,48 @@ function ProteinCalc(){
 
     const [isVisible, setIsVisible] = useState(false);
 
-    const [ProteinVal , setProteinVal] = useState()
+    const [CaloriesVal , setCaloriesVal] = useState()
 
-    function CalculateProtein(){
+    function CalculateCalories(){
         let selectGender = document.getElementById('selectGender').value
         let weight = document.getElementById('weight').value
+        let height = document.getElementById('height').value
         let PhysicalActivity = document.getElementById('PhysicalActivity').value
-        let SelectAge = document.getElementById('SelectAge').value
+        let age = document.getElementById('age').value
         let Phases = document.getElementById('Phases').value
 
         setIsVisible(true);
 
-
                 // ...............MALE EQUATIONS....................
 
 
-        if(document.getElementById('weight').value !== ""){
+    if(document.getElementById('weight').value && document.getElementById('height').value && document.getElementById('age').value !== ""){
         let activityMultiplier;
-        let ageMultiplier;
+        // let ageMultiplier;
         
-        if (selectGender === 'Male') {
-            switch (SelectAge) {
-                case '0-3 years':
-                    ageMultiplier = 1.5;
-                    break;
-                case '4-8 years':
-                    ageMultiplier = 1.2;
-                    break;
-                case '9-18 years':
-                case '19-50 years':
-                    ageMultiplier = 1.0;
-                    break;
-                case '51+ years':
-                    ageMultiplier = 0.9;
-                    break;
-                default:
-                    ageMultiplier = 1.0;
-            }
-        
+        if (selectGender === 'Male') {        
             switch (PhysicalActivity) {
                 case 'Sedentary':
-                    activityMultiplier = 1.0;
+                    activityMultiplier = 1.2;
                     break;
+                case 'Lightly active':
+                    activityMultiplier = 1.375;
+                    break
                 case 'Moderate':
-                    activityMultiplier = 1.3;
+                    activityMultiplier = 1.55;
                     break;
-                case 'Active':
-                    activityMultiplier = 1.6;
+                case 'Very active':
+                    activityMultiplier = 1.725;
                     break;
+                case 'Super active':
+                    activityMultiplier = 1.9;
+                     break;
                 default:
                     activityMultiplier = 1.0;
             }
         
-            let calc = weight * 0.8 * ageMultiplier * activityMultiplier;
-            setProteinVal(calc.toFixed(2));
+            let calc = 10 * weight + 6.25 * height - 5 * age + 5 * activityMultiplier;
+            setCaloriesVal(calc.toFixed(2));
         }
         
 
@@ -84,65 +72,58 @@ function ProteinCalc(){
         let phaseAdd;
 
         if (selectGender === 'Female') {
-            switch (SelectAge) {
-                case '0-3 years':
-                    ageMultiplier = 1.5;
-                    break;
-                case '4-8 years':
-                    ageMultiplier = 1.2;
-                    break;
-                case '9-18 years':
-                case '19-50 years':
-                    ageMultiplier = 1.0;
-                    break;
-                case '51+ years':
-                    ageMultiplier = 0.9;
-                    break;
-                default:
-                    ageMultiplier = 1.0;
-            }
-        
             switch (PhysicalActivity) {
                 case 'Sedentary':
-                    activityMultiplier = 1.0;
+                    activityMultiplier = 1.2;
                     break;
+                case 'Lightly active':
+                    activityMultiplier = 1.375;
+                    break
                 case 'Moderate':
-                    activityMultiplier = 1.3;
+                    activityMultiplier = 1.55;
                     break;
-                case 'Active':
-                    activityMultiplier = 1.6;
+                case 'Very active':
+                    activityMultiplier = 1.725;
                     break;
+                case 'Super active':
+                    activityMultiplier = 1.9;
+                     break;
                 default:
                     activityMultiplier = 1.0;
             }
 
             switch (Phases){
                 case 'Pregnancy':
-                    phaseAdd = 15
+                    phaseAdd = 500
                     break;
 
                 case 'Menstruation':
-                    phaseAdd = 20
+                    phaseAdd = 300
                     break;
                 case 'No':
                     phaseAdd = 0;
+                    break;
+                case 'Lactation':
+                    phaseAdd = 480;
+                    break;
                 default:
                     phaseAdd = 0;
             }
         
-            let calc = weight * 0.7 * ageMultiplier * activityMultiplier + phaseAdd;
-            setProteinVal(calc.toFixed(2));
+            let calc = 10 * weight + 6.25 * height - 5 * age - 161 * activityMultiplier + phaseAdd;
+            setCaloriesVal(calc.toFixed(2));
         }
     }else{
         setIsVisible(false)
     }
 
-    document.getElementById('selectGender').selectedIndex = 'Male';
-    document.getElementById('PhysicalActivity').selectedIndex = 'Sedentary';
-    document.getElementById('Phases').selectedIndex = "No";
-    document.getElementById('SelectAge').selectedIndex = "0-3 years"
+        document.getElementById('selectGender').selectedIndex = 'Male';
+        document.getElementById('PhysicalActivity').selectedIndex = 'Sedentary';
+        document.getElementById('Phases').selectedIndex = "No";
 
-    document.getElementById('weight').value = "";
+        document.getElementById('weight').value = "";
+        document.getElementById('height').value = "";
+        document.getElementById('age').value = "";
     }
 
 
@@ -164,7 +145,7 @@ function ProteinCalc(){
 
             <div className={style.waterCalcContainer}>
                 
-                <h1 className={style.heading}>Protein Intake Calculator</h1>
+                <h1 className={style.heading}>Calories Intake Calculator</h1>
 
                 </div>
 
@@ -187,6 +168,14 @@ function ProteinCalc(){
                 <input id="weight" type='number' min="0" name="weight" className={style.weight} />
             </div>
 
+            <div className={style.LabelDiv}>
+            <label htmlFor="" className={style.weightLabel}>Height (cm)</label>
+            </div>
+
+            <div className={style.selectContainers}>
+                <input id="height" type='number' min="0" name="height" className={style.weight} /> 
+            </div>
+
                 <div className={style.LabelDiv}>
                 <label htmlFor="" className={style.weightLabel}>Physical Activity Level:</label>
                 </div>
@@ -194,16 +183,22 @@ function ProteinCalc(){
                 <div className={style.selectContainers}>
                     <select id="PhysicalActivity" name="PhysicalActivity" className={style.selectGender}>
                         <option value="Sedentary">Sedentary</option>
+                        <option value="Lightly active">Lightly active</option>
                         <option value="Moderate">Moderate</option>
-                        <option value="Active">Active</option>
+                        <option value="Very active">Very active</option>
+                        <option value="Super active">Super active</option>
                     </select>
                 </div>
 
                 <div className={style.LabelDiv}>
-                <label htmlFor="" className={style.weightLabel}>Your Age:</label>
+                <label htmlFor="" className={style.weightLabel}>Enter Your Age:</label>
                 </div>
 
                 <div className={style.selectContainers}>
+                <input id="age" type='number' min="0" name="age" className={style.weight} /> 
+            </div>
+
+                {/* <div className={style.selectContainers}>
                     <select id="SelectAge" name="Age" className={style.selectGender}>
                         <option value="Sedentary">0-3 years</option>
                         <option value="Moderate">4-8 years</option>
@@ -211,7 +206,7 @@ function ProteinCalc(){
                         <option value="Active">19-50 years</option>
                         <option value="Active">51+ years</option>
                     </select>
-                </div>
+                </div> */}
 
 
             <div className={style.LabelDiv}>
@@ -223,33 +218,31 @@ function ProteinCalc(){
                     <option value="No">No</option>
                     <option value="Pregnancy">Pregnancy</option>
                     <option value="Menstruation">Menstruation</option>
+                    <option value="Lactation">Lactation</option>
                 </select>
             </div>
 
 
-                <button onClick={CalculateProtein} className={style.CalculateBtn}>{isVisible ? '' : ''}Calculate</button>
-            {isVisible && (
+                <button onClick={CalculateCalories} className={style.CalculateBtn}>{isVisible ? '' : ''}Calculate</button>
+                {isVisible && (
                 <>
-        <div className={style.LastCalcContainer}>
-          <div className={style.LastCalcDiv}>
-            <h1 className={style.LastCalcHead}>Recommended Daily Intake</h1>
-            <p className={style.LastCalc}>
-              You should take approximately <b>{ProteinVal} grams</b> of protein daily.
-            </p>
-          </div>
-        </div>
+                    <div className={style.LastCalcContainer}>
+                        <div className={style.LastCalcDiv}>
+                            <h1 className={style.LastCalcHead}>Recommended Daily Intake</h1>
+                            <p className={style.LastCalc}>
+                                You should take approximately <b>{CaloriesVal} grams</b> of calories daily.
+                            </p>
+                        </div>
+                    </div>
 
-
-
-        <div className={style.LastCalcContainer}>
-          <div className={style.TipsContainer}>
-            <h1 className={style.LastCalcHead}>Tips for Staying Protein-rich</h1>
-            <p className={style.TipsPara}>Snack on nuts.</p>
-            <p className={style.TipsPara}>Add eggs to breakfast.</p>
-            <p className={style.TipsPara}>Choose lean meats for meals.</p>
-            <p className={style.TipsPara}>Include chicken in meals.</p>
-          </div>
-        </div>
+                    <div className={style.LastCalcContainer}>
+                        <div className={style.TipsContainer}>
+                            <h1 className={style.LastCalcHead}>Tips for Staying Calorie-rich</h1>
+                            <p className={style.TipsPara}>Add Healthy Fats: Include avocados, nuts, and oils in your diet.</p>
+                            <p className={style.TipsPara}>Increase Portion Sizes: Gradually eat larger portions at meals.</p>
+                            <p className={style.TipsPara}>Drink smoothies.</p>
+                        </div>
+                    </div>
                 </>
             )}
     
@@ -257,4 +250,4 @@ function ProteinCalc(){
     )
 }
 
-export default ProteinCalc
+export default CaloriesCalc

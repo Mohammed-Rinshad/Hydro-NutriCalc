@@ -1,8 +1,11 @@
 body{
   background-color: rgba(252,254,253,255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  margin: 0;
 }
-
-            /* ....................Interface.Jsx  CSS...................*/
 
 #top-hr{
   width: 90%;
@@ -29,25 +32,15 @@ body{
   display: flex;
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
-  height: 20em; /* Adjust as needed */
-  width: 20em; /* Adjust as needed */
-  margin-left: 20px;
-  margin-top: 70px;
+  flex-grow: 1;
 }
 
 #body-img{
-  max-width: 20em; /* Keeps image responsive */
-  max-height: 20em; /* Ensures image fits within the container */
+  max-width: 100%; /* Keeps image responsive */
+  max-height: 100%; /* Ensures image fits within the container */
   opacity: 0;
   transform: translateY(-20px);
   animation: topFadeIn 1.5s ease-out forwards;
-}
-
-@keyframes topFadeIn {
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
 }
 
 p{
@@ -61,19 +54,19 @@ p{
 #btnContainer{
   display: flex;
   justify-content: center;
+  margin-top: auto; /* Pushes the button to the bottom */
+  margin-bottom: 30px; /* Adjusts the spacing at the bottom */
 }
 
 #getStarted{
   background-color: rgba(19,162,255,255);
   border: none;
-  /* align-items: center; */
   width: 17em;
   font-family: "Anek Devanagari", sans-serif;
   color: aliceblue;
   border-radius: 15px;
   height: 50px;
   font-size: 20px;
-  margin-top: 90px;
   cursor: pointer;
   text-align: center; /* Horizontally center the text */
   line-height: 50px; 
@@ -83,8 +76,11 @@ p{
 
 /* #getStarted:hover {
   background-color: #5bbcfd;
-
 } */
 
-        /*....................SecondInterface.jsx.................. */
-
+@keyframes topFadeIn {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

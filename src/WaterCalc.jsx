@@ -18,6 +18,7 @@ function CalculateWater(){
         navigate(-1)
     }
 
+    const [isVisible, setIsVisible] = useState(false);
 
     const [hVal , sethVal] = useState()
 
@@ -30,12 +31,15 @@ function CalculateWater(){
         // let labelPhases = document.getElementById('labelPhases')
 
 
+        setIsVisible(true);
+
+
 
 
         // ...............MALE EQUATIONS....................
 
 
-    
+    if(document.getElementById('weight').value !== ""){
         let activityMultiplier;
         let ageMultiplier;
         
@@ -131,6 +135,16 @@ function CalculateWater(){
             let calc = weight * 0.035 * ageMultiplier * activityMultiplier + phaseAdd;
             sethVal(calc.toFixed(2));
         }
+    }else{
+        setIsVisible(false)
+    }
+
+    document.getElementById('selectGender').selectedIndex = 'Male';
+    document.getElementById('PhysicalActivity').selectedIndex = 'Sedentary';
+    document.getElementById('Phases').selectedIndex = "No";
+    document.getElementById('SelectAge').selectedIndex = "0-3 years"
+
+    document.getElementById('weight').value = "";
 
 
         // selectGender = 'Male'
@@ -231,6 +245,8 @@ function CalculateWater(){
 
                 <button onClick={CalculateIntake} className={style.CalculateBtn}>Calculate</button>
 
+            {isVisible && (
+                <>
             <div className={style.LastCalcContainer}>
                 <div className={style.LastCalcDiv}>
                     <h1 className={style.LastCalcHead}>Recommended Daily Water Intake</h1>
@@ -248,6 +264,9 @@ function CalculateWater(){
                 </div>
 
             </div>
+
+            </>
+            )}
 
         </>
     )
