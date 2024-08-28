@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Logo from './assets/Designer8-DaXqVCJo.jpeg'
-import WaterImg from './assets/water image-CABxkBqt.png'
-import ProteinImg from './assets/protein image-Cbo-LWPF.png'
-import CalImg from './assets/cal image-B6eVXe1i.png'
+import Logo from './assets/Designer8.jpeg'
+import WaterImg from './assets/water image.png'
+import ProteinImg from './assets/protein image.png'
+import CalImg from './assets/cal image.png'
 import style from './secint.module.css'
 
 function SecInterface(){
