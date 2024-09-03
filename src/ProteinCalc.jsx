@@ -42,6 +42,8 @@ function ProteinCalc(){
         let ageMultiplier;
         
         if (selectGender === 'Male') {
+            if(Phases === 'No'){
+            
             switch (SelectAge) {
                 case '0-3 years':
                     ageMultiplier = 1.5;
@@ -76,7 +78,9 @@ function ProteinCalc(){
         
             let calc = weight * 0.8 * ageMultiplier * activityMultiplier;
             setProteinVal(calc.toFixed(2));
-        }
+        }else{
+            setIsVisible(false)
+        }}
         
 
         // .................FEMALE EQUATION................

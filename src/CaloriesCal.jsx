@@ -41,7 +41,9 @@ function CaloriesCalc(){
         let activityMultiplier;
         // let ageMultiplier;
         
-        if (selectGender === 'Male') {        
+        if (selectGender === 'Male') {  
+            if(Phases === 'No'){
+            
             switch (PhysicalActivity) {
                 case 'Sedentary':
                     activityMultiplier = 1.2;
@@ -64,7 +66,9 @@ function CaloriesCalc(){
         
             let calc = 10 * weight + 6.25 * height - 5 * age + 5 * activityMultiplier;
             setCaloriesVal(calc.toFixed(2));
-        }
+        }else{
+            setIsVisible(false)
+        }}
         
 
         // .................FEMALE EQUATION................

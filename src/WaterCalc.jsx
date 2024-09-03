@@ -44,6 +44,8 @@ function CalculateWater(){
         let ageMultiplier;
         
         if (selectGender === 'Male') {
+            if(Phases === 'No'){
+
             switch (SelectAge) {
                 case '0-3 years':
                     ageMultiplier = 1.5;
@@ -78,7 +80,9 @@ function CalculateWater(){
         
             let calc = weight * 0.04 * ageMultiplier * activityMultiplier;
             sethVal(calc.toFixed(2));
-        }
+        }else{
+            setIsVisible(false)
+        }}
         
 
         // .................FEMALE EQUATION................
