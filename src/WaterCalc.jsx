@@ -1,22 +1,22 @@
 import React, {useState} from "react"
 // import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import style from './watercal.module.css'
 
 
 function CalculateWater(){
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    function ToHome(){
-    navigate('/');
+    // function ToHome(){
+    // navigate('/');
 
-    }
+    // }
 
-    function ToPrevPage(){
-        navigate(-1)
-    }
+    // function ToPrevPage(){
+    //     navigate(-1)
+    // }
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -169,15 +169,15 @@ function CalculateWater(){
         <>
 
         <div id={style.header}>
-            <img onClick={ToPrevPage} id={style.logo} src="https://www.pikpng.com/pngl/b/246-2465368_back-arrow-comments-back-arrow-icon-png-clipart.png" alt="Logo" />
+            {/* <img onClick={ToPrevPage} id={style.logo} src="https://www.pikpng.com/pngl/b/246-2465368_back-arrow-comments-back-arrow-icon-png-clipart.png" alt="Logo" /> */}
             <h1>HydroNutriCalc</h1>
             <div id={style.ImgContainer}>
-                <img
+                {/* <img
                     onClick={ToHome}
                     id={style.home}
                     src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"
                     alt="Home"
-                />
+                /> */}
             </div>
         </div>
 

@@ -1,8 +1,8 @@
 #header {
-    background-color: rgba(252, 254, 253, 1);
+    /* background-color: rgba(252, 254, 253, 1); */
     color: black;
     padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,7 +12,7 @@
 }
 
 #header h1 {
-    font-size: 1.8em;
+    font-size: 1.9em;
     font-family: "Anek Devanagari", sans-serif;
     flex-grow: 1;
     margin: 0;
@@ -43,7 +43,7 @@
     }
 
     #header h1 {
-        font-size: 1.5em;
+        font-size: 2.2em;
     }
 
      #home {
@@ -63,14 +63,14 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
-    width: 100%;
+    width: 93%;
     margin-left: 15px;
 }
 
 .intakeSection {
     background-color: #cee3f2;
     width: 90%;
-    max-width: 700px;
+    max-width: 769px;
     height: 18em; /* Slightly increased height */
     border-radius: 15px;
     margin: 2em 0;
@@ -110,7 +110,7 @@
         flex-direction: row;
         justify-content: space-between;
         padding: 0;
-        height: 20em; /* Slightly increased height for larger screens */
+        height: 20em; 
     }
 
     .intakeSection img {

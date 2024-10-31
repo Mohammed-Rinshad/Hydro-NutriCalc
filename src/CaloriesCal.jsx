@@ -6,19 +6,19 @@ import { useNavigate } from 'react-router-dom';
 
 function CaloriesCalc(){
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
 
     
-    function GoHome(){
-        navigate('/');
+    // function GoHome(){
+    //     navigate('/');
 
-    }
+    // }
 
-    function GoBack(){
-        navigate(-1);
+    // function GoBack(){
+    //     navigate(-1);
 
-    }
+    // }
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -134,16 +134,16 @@ function CaloriesCalc(){
     return(
         <>
         <div id={style.header}>
-            <img onClick={GoBack} id={style.logo} src="https://www.pikpng.com/pngl/b/246-2465368_back-arrow-comments-back-arrow-icon-png-clipart.png" alt="Logo" />
+            {/* <img onClick={GoBack} id={style.logo} src="https://www.pikpng.com/pngl/b/246-2465368_back-arrow-comments-back-arrow-icon-png-clipart.png" alt="Logo" /> */}
             <h1>HydroNutriCalc</h1>
-            <div id={style.ImgContainer}>
+            {/* <div id={style.ImgContainer}> */}
                 <img
-                    onClick={GoHome}
-                    id={style.home}
-                    src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"
-                    alt="Home"
+                    // onClick={GoHome}
+                    // id={style.home}
+                    // src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"
+                    // alt="Home"
                 />
-            </div>
+            {/* </div> */}
         </div>
 
 

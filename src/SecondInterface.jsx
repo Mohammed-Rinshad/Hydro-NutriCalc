@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Logo from './assets/Designer8.jpeg'
+// import Logo from './assets/Designer8.jpeg'
 import WaterImg from './assets/water image.png'
 import ProteinImg from './assets/protein image.png'
 import CalImg from './assets/cal image.png'
@@ -11,9 +11,9 @@ function SecInterface(){
 
     const navigate = useNavigate();
 
-    function ToHome(){
-        navigate('/');
-    }
+    // function ToHome(){
+    //     navigate('/');
+    // }
 
     function ToCalculateWater(){
         navigate('/CalculateWater');
@@ -30,15 +30,15 @@ function SecInterface(){
     return(
         <>
         <div id={style.header}>
-            <img id={style.logo} src={Logo} alt="Logo" />
+            {/* <img id={style.logo} src={Logo} alt="Logo" /> */}
             <h1>HydroNutriCalc</h1>
             <div id={style.ImgContainer}>
-                <img
+                {/* <img
                     onClick={ToHome}
                     id={style.home}
                     src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"
                     alt="Home"
-                />
+                /> */}
             </div>
         </div>
 
