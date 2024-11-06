@@ -1,0 +1,160 @@
+import style from './watercal.module.css'
+// import CalculateWater from './WaterCalc'
+import React, {useState} from "react"
+// import React from 'react';
+// import { useNavigate } from 'react-router-dom';
+
+function CreatineCalc(){
+
+    // const navigate = useNavigate();
+
+
+    
+    // function GoHome(){
+    //     navigate('/');
+
+    // }
+
+    // function GoBack(){
+    //     navigate(-1);
+
+    // }
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    const [CreatineVal , setCreatineVal] = useState()
+
+    function CalculateCreatine(){
+        let selectGender = document.getElementById('selectGender').value
+        let weight = document.getElementById('weight').value
+        let PhysicalActivity = document.getElementById('PhysicalActivity').value
+
+        setIsVisible(true);
+        
+        if(document.getElementById('weight').value !== ""){
+        if (selectGender === 'Male' || 'Female') {  
+
+            let activityMultiplier
+
+            switch (PhysicalActivity) {
+                case 'Sedentary':
+                    activityMultiplier = 1.0;
+                    break;
+                case 'Moderate':
+                    activityMultiplier = 1.2;
+                    break;
+                case 'Active':
+                    activityMultiplier = 1.4;
+                    break;
+                case 'Very active':
+                    activityMultiplier = 1.6;
+                     break;
+                default:
+                    activityMultiplier = 0.3;
+            }
+        
+            let calc = weight * 0.03 * activityMultiplier
+            setCreatineVal(calc.toFixed(2));
+        }}else{
+            setIsVisible(false)
+        }
+        
+        document.getElementById('selectGender').selectedIndex = 'Male';
+        document.getElementById('PhysicalActivity').selectedIndex = 'Sedentary';
+        document.getElementById('weight').value = "";
+    }
+
+
+    return(
+        <>
+        <div id={style.header}>
+            {/* <img onClick={GoBack} id={style.logo} src="https://www.pikpng.com/pngl/b/246-2465368_back-arrow-comments-back-arrow-icon-png-clipart.png" alt="Logo" /> */}
+            <h1>HydroNutriCalc</h1>
+            {/* <div id={style.ImgContainer}> */}
+                <img
+                    // onClick={GoHome}
+                    // id={style.home}
+                    // src="https://static.vecteezy.com/system/resources/thumbnails/014/391/893/small_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png"
+                    // alt="Home"
+                />
+            {/* </div> */}
+        </div>
+
+
+            <div className={style.waterCalcContainer}>
+                
+                <h1 className={style.heading}>Creatine Intake Calculator</h1>
+
+                </div>
+
+            <div className={style.LabelDiv}>
+            <label htmlFor="" className={style.weightLabel}>Gender</label>
+            </div>
+
+            <div className={style.selectContainers}>
+                <select id="selectGender" name="Gender" className={style.selectGender}>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div className={style.LabelDiv}>
+            <label htmlFor="" className={style.weightLabel}>Weight (kg)</label>
+            </div>
+
+            <div className={style.selectContainers}>
+                <input id="weight" type='number' min="0" name="weight" className={style.weight} />
+            </div>
+
+                <div className={style.LabelDiv}>
+                <label htmlFor="" className={style.weightLabel}>Physical Activity Level:</label>
+                </div>
+
+                <div className={style.selectContainers}>
+                    <select id="PhysicalActivity" name="PhysicalActivity" className={style.selectGender}>
+                        <option value="Sedentary">Sedentary</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Very active">Active</option>
+                        <option value="Super active">Very active</option>
+                    </select>
+                </div>
+
+                {/* <div className={style.selectContainers}>
+                    <select id="SelectAge" name="Age" className={style.selectGender}>
+                        <option value="Sedentary">0-3 years</option>
+                        <option value="Moderate">4-8 years</option>
+                        <option value="Active">9-18 years</option>
+                        <option value="Active">19-50 years</option>
+                        <option value="Active">51+ years</option>
+                    </select>
+                </div> */}
+
+
+                <button onClick={CalculateCreatine} className={style.CalculateBtn}>{isVisible ? '' : ''}Calculate</button>
+                {isVisible && (
+                <>
+                    <div className={style.LastCalcContainer}>
+                        <div className={style.LastCalcDiv}>
+                            <h1 className={style.LastCalcHead}>Recommended Daily Intake</h1>
+                            <p className={style.LastCalc}>
+                                You should take approximately <b>{CreatineVal} grams</b> of Creatine.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className={style.LastCalcContainer}>
+                        <div className={style.TipsContainer}>
+                            <h1 className={style.LastCalcHead}>Tips for Creatine Intake</h1>
+                            <p className={style.TipsPara}>Pair with carbs/protein for better absorption.</p>
+                            <p className={style.TipsPara}>Stay hydrated to counter water retention.</p>
+                            <p className={style.TipsPara}>Take post-workout (optional) for slight benefit.</p>
+                        </div>
+                    </div>
+                </>
+            )}
+    
+        </>
+    )
+}
+
+export default CreatineCalc

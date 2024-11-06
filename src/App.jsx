@@ -6,6 +6,9 @@ import SecInterface from './SecondInterface.jsx'
 import CalculateWater from './WaterCalc.jsx'
 import ProteinCalc from './ProteinCalc.jsx'
 import CaloriesCalc from './CaloriesCal.jsx'
+import CreatineCalc from './creatineCal.jsx'
+
+
 // import Test from './test.jsx'
 
 function App() {
@@ -19,6 +22,7 @@ function App() {
           <Route path='/CalculateWater' element={<CalculateWater />}></Route>
           <Route path='/ProteinCalc' element={<ProteinCalc />}></Route>
           <Route path='/CaloriesCalc' element={<CaloriesCalc />}></Route>
+          <Route path='/CreatineCalc' element={<CreatineCalc />}></Route>
         </Routes>
       </HashRouter>
 

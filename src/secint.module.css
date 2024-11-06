@@ -104,6 +104,12 @@
     margin-top: 35px;
 }
 
+
+#creatineImg{
+    border-radius: 95px;
+    width: 31%;
+}
+
 /* Responsive adjustments */
 @media (min-width: 769px) {
     .intakeSection {

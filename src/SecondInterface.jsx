@@ -6,6 +6,7 @@ import WaterImg from './assets/water image.png'
 import ProteinImg from './assets/protein image.png'
 import CalImg from './assets/cal image.png'
 import style from './secint.module.css'
+import creatineImg from './assets/creatine.png'
 
 function SecInterface(){
 
@@ -25,6 +26,10 @@ function SecInterface(){
 
     function ToCalculateCalories(){
         navigate('/CaloriesCalc')
+    }
+
+    function ToCalculateCreatine(){
+        navigate('/CreatineCalc')
     }
 
     return(
@@ -56,6 +61,11 @@ function SecInterface(){
             <div id={style.CalculateCalIntake} className={style.intakeSection}>
                 <img src={CalImg} id={style.CalImg} alt="Calories" />
                 <button onClick={ToCalculateCalories} id={style.CalBtn}>Calculate Calories Intake</button>
+            </div>
+
+            <div id={style.CalculatecreatineIntake} className={style.intakeSection}>
+                <img src={creatineImg} id={style.creatineImg} alt="creatine" />
+                <button onClick={ToCalculateCreatine} id={style.CalBtn}>Calculate Creatine Intake</button>
             </div>
         </div>
         </>
